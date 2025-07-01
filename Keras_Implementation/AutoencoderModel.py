@@ -6,11 +6,11 @@ Created on Mon Dec  9 14:31:29 2019
 Wrapper File for 1. Compute pwr combined (Real, Imag), (Extract R & I parts) Generate single distribution, Separate Sending, (R&I)
 """
 
-from keras.layers import Conv2D, Layer, Input, Conv2DTranspose, UpSampling2D, Cropping2D
-from keras.optimizers import Adam
-from keras.layers.advanced_activations import PReLU
-from keras.models import Model
-import keras
+from tensorflow.keras.layers import Conv2D, Layer, Input, Conv2DTranspose, UpSampling2D, Cropping2D
+from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.layers import PReLU
+from tensorflow.keras.models import Model
+import tensorflow.keras as keras
 import tensorflow as tf
 import numpy as np
 import tensorflow.keras.backend as K
@@ -173,9 +173,9 @@ def TrainAutoEncoder(x_train, x_test, nb_epoch, comp_ratio, batch_size, c, snr, 
     print('\t|\t\t\t\t\t\t\t\t|')
     print('\t|\t\t\t\t\t\t\t\t|')
     print('\t-----------------------------------------------------------------')
-    tb = keras.callbacks.tensorboard_v1.TensorBoard(log_dir='./Tensorboard/CompRatio{0}_SNR{1}'.format(str(comp_ratio), str(snr)))
+    tb = keras.callbacks.TensorBoard(log_dir='./Tensorboard/CompRatio{0}_SNR{1}'.format(str(comp_ratio), str(snr)))
     os.makedirs('./checkpoints/CompRatio{0}_SNR{1}'.format(str(comp_ratio), str(snr)), exist_ok=True)
-    checkpoint = keras.callbacks.callbacks.ModelCheckpoint(filepath='./checkpoints/CompRatio{0}_SNR{1}'.format(str(comp_ratio), str(snr))+'/Autoencoder.h5', monitor='val_loss', save_best_only=True)
+    checkpoint = keras.callbacks.ModelCheckpoint(filepath='./checkpoints/CompRatio{0}_SNR{1}'.format(str(comp_ratio), str(snr))+'/Autoencoder.h5', monitor='val_loss', save_best_only=True)
     ckpt = ModelCheckponitsHandler(comp_ratio, snr, autoencoder, step=saver_step)
     history = autoencoder.fit(x=x_train, y=x_train, batch_size=batch_size, epochs=nb_epoch,  callbacks=[tb, checkpoint, ckpt], validation_data=(x_test,x_test))
     return history

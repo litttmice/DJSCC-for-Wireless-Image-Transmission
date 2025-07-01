@@ -6,7 +6,7 @@ Created on Tue Nov 26 18:09:44 2019
 """
 
 import tensorflow as tf
-from keras.datasets import cifar10
+from tensorflow.keras.datasets import cifar10
 from JSCC_Methods import Normalize_pixels
 from JSCC_visualization import  Get_PlotBySNR, Get_PlotByCompRatio, load_modelHistories
 #from JSCC_visualization import load_model, get_pred, get_PSNR, read_json
