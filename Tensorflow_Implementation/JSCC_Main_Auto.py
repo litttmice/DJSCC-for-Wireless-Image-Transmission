@@ -6,7 +6,7 @@ Created on Fri Nov 22 00:57:21 2019
 """
 
 import numpy as np
-from keras.datasets import cifar10
+from tensorflow.keras.datasets import cifar10
 import tensorflow as tf
 from JSSC_wrapper import conv2d_layer, conv2dTranspose_layer, PReLU, CompileModel, GetAccuracy, WriteSummaries, TrainModel
 from JSCC_Methods import Normalize_pixels, NormalizationLayer, AWGN_layer, Calculate_filters

@@ -8,10 +8,10 @@ Created on Thu Dec 12 20:57:10 2019
 import tensorflow as tf
 import os
 import numpy as np
-from keras.models import load_model
+from tensorflow.keras.models import load_model
 from AutoencoderModel import NormalizationNoise
-from keras.datasets import cifar10
-from keras import backend as K
+from tensorflow.keras.datasets import cifar10
+from tensorflow.keras import backend as K
 from skimage.metrics import structural_similarity
 from skimage.measure import compare_psnr 
 from matplotlib import pyplot as plt

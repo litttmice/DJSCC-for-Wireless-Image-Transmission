@@ -6,7 +6,7 @@ Created on Wed Nov 20 00:39:40 2019
 1. Compute pwr combined (Real, Imag), (Extract R & I parts) Generate single distribution, Separate Sending, (R&I)
 """
 
-from keras.datasets import cifar10
+from tensorflow.keras.datasets import cifar10
 from AutoencoderModel import TrainAutoEncoder, Calculate_filters
 import tensorflow as tf
 
